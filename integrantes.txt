@@ -13,6 +13,9 @@ Fernando Nachtigall Tessmann
 RM 559617 
 Turma 2TDSPR 
 
+Link Acesso AZURE DEVOPS:
+https://dev.azure.com/559567/AgroTech
+
 Github:
 https://github.com/challenge-oracle-2tdspr/compliance-quality-assurance-tests.git
 
