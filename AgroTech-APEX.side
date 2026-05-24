@@ -1,0 +1,417 @@
+{
+  "id": "7f9cc2d7-d9cd-464b-9240-f2a57f7f6282",
+  "version": "2.0",
+  "name": "AgroTech APEX",
+  "url": "https://g2f0677605ec57e-agrotechdb.adb.sa-saopaulo-1.oraclecloudapps.com",
+  "tests": [{
+    "id": "13358e57-1dfc-47a3-bdfd-aab435d81da1",
+    "name": "APEX",
+    "commands": [{
+      "id": "baf96a8c-72ac-4f89-9c76-7a48e3a09224",
+      "comment": "",
+      "command": "open",
+      "target": "/ords/r/agrotech_app/agrotech-monitor/login?session=113382262580891&tz=-3:00",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "03474c70-d88c-4764-8306-05e849d13602",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1920x1048",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d3762367-4945-4c6f-b380-4a0cfb8e265b",
+      "comment": "",
+      "command": "click",
+      "target": "id=P9999_USERNAME",
+      "targets": [
+        ["id=P9999_USERNAME", "id"],
+        ["name=P9999_USERNAME", "name"],
+        ["css=#P9999_USERNAME", "css:finder"],
+        ["xpath=//input[@id='P9999_USERNAME']", "xpath:attributes"],
+        ["xpath=//div[@id='P9999_USERNAME_CONTAINER']/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "97e61a67-a7e2-41f9-8e52-18792f445135",
+      "comment": "",
+      "command": "type",
+      "target": "id=P9999_USERNAME",
+      "targets": [
+        ["id=P9999_USERNAME", "id"],
+        ["name=P9999_USERNAME", "name"],
+        ["css=#P9999_USERNAME", "css:finder"],
+        ["xpath=//input[@id='P9999_USERNAME']", "xpath:attributes"],
+        ["xpath=//div[@id='P9999_USERNAME_CONTAINER']/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "AGROTECH_APP"
+    }, {
+      "id": "2e8109c9-92fb-4cd3-9c1a-2f3586abe164",
+      "comment": "",
+      "command": "type",
+      "target": "id=P9999_PASSWORD",
+      "targets": [
+        ["id=P9999_PASSWORD", "id"],
+        ["name=P9999_PASSWORD", "name"],
+        ["css=#P9999_PASSWORD", "css:finder"],
+        ["xpath=//input[@id='P9999_PASSWORD']", "xpath:attributes"],
+        ["xpath=//div[@id='P9999_PASSWORD_CONTAINER']/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "6447vesaliuS!"
+    }, {
+      "id": "0ed7b40a-6eb5-4d04-838b-6fc59a47ebcd",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=P9999_PASSWORD",
+      "targets": [
+        ["id=P9999_PASSWORD", "id"],
+        ["name=P9999_PASSWORD", "name"],
+        ["css=#P9999_PASSWORD", "css:finder"],
+        ["xpath=//input[@id='P9999_PASSWORD']", "xpath:attributes"],
+        ["xpath=//div[@id='P9999_PASSWORD_CONTAINER']/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "24ac1f3c-d25b-4b30-baa3-7a6d26097808",
+      "comment": "",
+      "command": "click",
+      "target": "id=t_Button_navControl",
+      "targets": [
+        ["id=t_Button_navControl", "id"],
+        ["css=#t_Button_navControl", "css:finder"],
+        ["xpath=//button[@id='t_Button_navControl']", "xpath:attributes"],
+        ["xpath=//header[@id='t_Header']/div/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4b5e348e-70d7-46be-a1d0-5b30e76269ae",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Recomendações Inteligentes",
+      "targets": [
+        ["linkText=Recomendações Inteligentes", "linkText"],
+        ["css=.is-hover > .a-TreeView-label", "css:finder"],
+        ["xpath=//a[contains(text(),'Recomendações Inteligentes')]", "xpath:link"],
+        ["xpath=//li[@id='t_TreeNav_1']/div[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/ords/r/agrotech_app/agrotech-monitor/recomenda%C3%A7%C3%B5es-inteligentes?session=113382262580891')]", "xpath:href"],
+        ["xpath=//li[2]/div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Recomendações Inteligentes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "971675b7-2c0c-4ea7-a34d-926188564efe",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Dashboard",
+      "targets": [
+        ["linkText=Dashboard", "linkText"],
+        ["css=.is-hover > .a-TreeView-label", "css:finder"],
+        ["xpath=//a[contains(text(),'Dashboard')]", "xpath:link"],
+        ["xpath=//li[@id='t_TreeNav_2']/div[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/ords/r/agrotech_app/agrotech-monitor/dashboard?session=113382262580891')]", "xpath:href"],
+        ["xpath=//li[3]/div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Dashboard')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "790cce59-0497-4c3b-9707-f29510dd60ce",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f9f1965f-eea2-4ec2-a78d-a1c80fcca540",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Alertas",
+      "targets": [
+        ["linkText=Alertas", "linkText"],
+        ["css=.is-hover > .a-TreeView-label", "css:finder"],
+        ["xpath=//a[contains(text(),'Alertas')]", "xpath:link"],
+        ["xpath=//li[@id='t_TreeNav_3']/div[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/ords/r/agrotech_app/agrotech-monitor/alertas?session=113382262580891')]", "xpath:href"],
+        ["xpath=//li[4]/div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Alertas')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ab4b4692-03f1-426d-ac62-b5f7e0dcb90b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.is-hover:nth-child(2)",
+      "targets": [
+        ["css=.is-hover:nth-child(2)", "css:finder"],
+        ["xpath=//li[@id='t_TreeNav_4']/div[2]", "xpath:idRelative"],
+        ["xpath=//li[5]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "558cf3a1-92c1-4ffe-9fae-d6805e83997d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Tendência dos Sensores",
+      "targets": [
+        ["linkText=Tendência dos Sensores", "linkText"],
+        ["css=.is-hover > .a-TreeView-label", "css:finder"],
+        ["xpath=//a[contains(text(),'Tendência dos Sensores')]", "xpath:link"],
+        ["xpath=//li[@id='t_TreeNav_5']/div[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/ords/r/agrotech_app/agrotech-monitor/tend%C3%AAncia-dos-sensores?session=113382262580891')]", "xpath:href"],
+        ["xpath=//li[6]/div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tendência dos Sensores')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7e81411a-a323-44cb-a14b-866828b6feda",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "linkText=Tendência dos Sensores",
+      "targets": [
+        ["linkText=Tendência dos Sensores", "linkText"],
+        ["css=.is-current", "css:finder"],
+        ["xpath=//a[contains(text(),'Tendência dos Sensores')]", "xpath:link"],
+        ["xpath=//li[@id='t_TreeNav_5']/div[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/ords/r/agrotech_app/agrotech-monitor/tend%C3%AAncia-dos-sensores?session=113382262580891')]", "xpath:href"],
+        ["xpath=//li[6]/div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tendência dos Sensores')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5de4296f-cd09-4714-aee3-511a18fe8bb2",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "linkText=Tendência dos Sensores",
+      "targets": [
+        ["linkText=Tendência dos Sensores", "linkText"],
+        ["css=.is-current", "css:finder"],
+        ["xpath=//a[contains(text(),'Tendência dos Sensores')]", "xpath:link"],
+        ["xpath=//li[@id='t_TreeNav_5']/div[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/ords/r/agrotech_app/agrotech-monitor/tend%C3%AAncia-dos-sensores?session=113382262580891')]", "xpath:href"],
+        ["xpath=//li[6]/div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tendência dos Sensores')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3db42de0-e0cb-4696-8a85-1490e534959d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Propriedades",
+      "targets": [
+        ["linkText=Propriedades", "linkText"],
+        ["css=.is-hover > .a-TreeView-label", "css:finder"],
+        ["xpath=//a[contains(text(),'Propriedades')]", "xpath:link"],
+        ["xpath=//li[@id='t_TreeNav_6']/div[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/ords/r/agrotech_app/agrotech-monitor/propriedades?session=113382262580891')]", "xpath:href"],
+        ["xpath=//li[7]/div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Propriedades')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "07727fa2-77ab-43ac-82df-86c7ce3ecef7",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Propriedades",
+      "targets": [
+        ["linkText=Propriedades", "linkText"],
+        ["css=.is-focused:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Propriedades')]", "xpath:link"],
+        ["xpath=//li[@id='t_TreeNav_6']/div[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/ords/r/agrotech_app/agrotech-monitor/propriedades?session=113382262580891')]", "xpath:href"],
+        ["xpath=//li[7]/div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Propriedades')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2eae3b8a-7fa4-4c6e-9e8f-f1ea89684796",
+      "comment": "",
+      "command": "click",
+      "target": "css=.is-hover:nth-child(2)",
+      "targets": [
+        ["css=.is-hover:nth-child(2)", "css:finder"],
+        ["xpath=//li[@id='t_TreeNav_7']/div[2]", "xpath:idRelative"],
+        ["xpath=//li[8]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0168969c-547f-4566-9c0a-878bcf9e972f",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(3) > .u-tL:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(3) > .u-tL:nth-child(2)", "css:finder"],
+        ["xpath=//table[@id='13061289075300426_orig']/tbody/tr[3]/td[2]", "xpath:idRelative"],
+        ["xpath=//tr[3]/td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'98765432100')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ddd8aa87-ab32-4878-b8d9-8143f6615c0f",
+      "comment": "",
+      "command": "click",
+      "target": "id=R13061188387300426_search_field",
+      "targets": [
+        ["id=R13061188387300426_search_field", "id"],
+        ["css=#R13061188387300426_search_field", "css:finder"],
+        ["xpath=//input[@id='R13061188387300426_search_field']", "xpath:attributes"],
+        ["xpath=//div[@id='R13061188387300426_toolbar_controls']/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e3f640df-b9e7-4f0d-ac44-d6c3592aa384",
+      "comment": "",
+      "command": "type",
+      "target": "id=R13061188387300426_search_field",
+      "targets": [
+        ["id=R13061188387300426_search_field", "id"],
+        ["css=#R13061188387300426_search_field", "css:finder"],
+        ["xpath=//input[@id='R13061188387300426_search_field']", "xpath:attributes"],
+        ["xpath=//div[@id='R13061188387300426_toolbar_controls']/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "98765432100"
+    }, {
+      "id": "355b48ac-41a5-495a-a8bc-127d63c8f34c",
+      "comment": "",
+      "command": "click",
+      "target": "id=R13061188387300426_search_button",
+      "targets": [
+        ["id=R13061188387300426_search_button", "id"],
+        ["css=#R13061188387300426_search_button", "css:finder"],
+        ["xpath=//button[@id='R13061188387300426_search_button']", "xpath:attributes"],
+        ["xpath=//div[@id='R13061188387300426_toolbar_controls']/div/div/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Ir')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e354e86e-6e5c-44bc-a59c-81908892974c",
+      "comment": "",
+      "command": "click",
+      "target": "id=main",
+      "targets": [
+        ["id=main", "id"],
+        ["css=#main", "css:finder"],
+        ["xpath=//main[@id='main']", "xpath:attributes"],
+        ["xpath=//div[@id='t_Body_content']/main", "xpath:idRelative"],
+        ["xpath=//main", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2702dc3e-1f38-474b-bcc3-054007b8ad74",
+      "comment": "",
+      "command": "click",
+      "target": "css=.icon-remove",
+      "targets": [
+        ["css=.icon-remove", "css:finder"],
+        ["xpath=//div[@id='a_Collapsible1_R13061188387300426_control_panel_content']/ul/li/span[4]/button/span", "xpath:idRelative"],
+        ["xpath=//span[4]/button/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "63a8610d-19dc-47bd-a440-1a2a9b7bbfd7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.is-hover:nth-child(2)",
+      "targets": [
+        ["css=.is-hover:nth-child(2)", "css:finder"],
+        ["xpath=//li[@id='t_TreeNav_0']/div[2]", "xpath:idRelative"],
+        ["xpath=//li/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d0a0e7b7-92ea-4c0e-bd5f-a11face16d41",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ag-mini-card:nth-child(1)",
+      "targets": [
+        ["css=.ag-mini-card:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='ag-insights-container']/div", "xpath:idRelative"],
+        ["xpath=//section/div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d57121db-2d8f-4135-821b-416dca86e814",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ag-mini-card:nth-child(1)",
+      "targets": [
+        ["css=.ag-mini-card:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='ag-insights-container']/div", "xpath:idRelative"],
+        ["xpath=//section/div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1656992a-49e8-43a3-98ce-24b4cc8e34c6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ag-mini-card:nth-child(1)",
+      "targets": [
+        ["css=.ag-mini-card:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='ag-insights-container']/div", "xpath:idRelative"],
+        ["xpath=//section/div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a2a5495f-1fea-4429-9731-42d3167a250c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ag-mini-card:nth-child(1)",
+      "targets": [
+        ["css=.ag-mini-card:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='ag-insights-container']/div", "xpath:idRelative"],
+        ["xpath=//section/div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1af96bf0-5593-4924-9a62-1a5d8c1ff28e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Dashboard",
+      "targets": [
+        ["linkText=Dashboard", "linkText"],
+        ["css=.is-hover > .a-TreeView-label", "css:finder"],
+        ["xpath=//a[contains(text(),'Dashboard')]", "xpath:link"],
+        ["xpath=//li[@id='t_TreeNav_2']/div[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/ords/r/agrotech_app/agrotech-monitor/dashboard?session=113382262580891')]", "xpath:href"],
+        ["xpath=//li[3]/div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Dashboard')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3642cc7a-f16e-4942-9852-8b5632bd59c2",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2a68bdb0-ee54-4384-a709-caf4ed66d047",
+      "comment": "",
+      "command": "click",
+      "target": "css=.is-hover:nth-child(2)",
+      "targets": [
+        ["css=.is-hover:nth-child(2)", "css:finder"],
+        ["xpath=//li[@id='t_TreeNav_0']/div[2]", "xpath:idRelative"],
+        ["xpath=//li/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "60fc7c0a-c0d0-4cfe-8e90-68a34dd2ca8e",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["https://g2f0677605ec57e-agrotechdb.adb.sa-saopaulo-1.oraclecloudapps.com/"],
+  "plugins": []
+}

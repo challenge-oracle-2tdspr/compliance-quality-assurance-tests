@@ -1,7 +1,25 @@
 # Projeto AgroTech - Arquitetura e Solução 
 
+## Sumário
+
+- [Objetivo do Projeto](#objetivo-do-projeto)
+- [Diagrama de Arquitetura](#diagrama-de-arquitetura)
+- [Escopo do Sistema](#escopo-do-sistema)
+- [Integração com Oracle APEX](#integração-com-oracle-apex)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Pipeline de Testes](#pipeline-de-testes)
+- [Link do Azure DevOps](#link-do-azure-devops)
+- [Teste com Selenium IDE](#teste-com-selenium-ide)
+
+
+
 ## Objetivo do Projeto
 O AgroTech é uma solução integrada de gestão agrícola inteligente, projetada para monitorar plantações e safras por meio de sensores IoT, análise de dados ambientais, automação de irrigação e controle de produtividade. O sistema conecta o campo à gestão, possibilitando decisões em tempo real baseadas em dados precisos e inovadores.
+
+# Vídeos
+## Confira o vídeo de `testes` do projeto no YouTube:
+
+[![AgroTech Commercial Presentation](https://img.youtube.com/vi/W_hSNBsWW8E/0.jpg)](https://youtu.be/W_hSNBsWW8E)
 
 ## Confira o vídeo de apresentação geral do projeto no YouTube:
 
@@ -11,11 +29,7 @@ O AgroTech é uma solução integrada de gestão agrícola inteligente, projetad
 
 [![AgroTech Demo & Test API ASP .NET CORE](https://img.youtube.com/vi/1T_w2M-NjsE/0.jpg)](https://youtu.be/1T_w2M-NjsE)
 
-`Abaixo, um diagrama para ilustrar o fluxo geral do projeto:`
-
-<img src="./agrotech-diagrama-tecnologia/diagrama-tecnologia-agrotech.jpg">
-
-Vídeos de Apresentação do Projeto:
+Outros Vídeos de Apresentação do Projeto:
 
 `Proposta de Implementação LLM`
 
@@ -28,6 +42,13 @@ https://youtu.be/YdZeIElCnHE?feature=shared
 `Vídeo Pitch Agrotech` 
 
 https://youtu.be/TwlQuYMBLX0?feature=shared
+
+
+## Diagrama de Arquitetura
+`Abaixo, um diagrama para ilustrar o fluxo geral do projeto:`
+
+<img src="./agrotech-diagrama-tecnologia/diagrama-tecnologia-agrotech.jpg">
+
 
 ## Escopo do Sistema
  - Backend Java (Spring Boot) para gerenciamento agrícola, usuários e sensores.
@@ -77,5 +98,16 @@ Integração IoT via Oracle APEX: Implantamos um fluxo para captura de dados amb
 
 - Pipeline de integração contínua com Docker e Oracle Cloud Infrastructure.
 
-## Vídeo de Apresentação do Projeto
-- Apresentação do Projeto AgroTech no YouTube
+## Pipeline de Testes
+
+Clique aqui:
+[Agrotech API Tests.postman_collection](Agrotech%20API%20Tests.postman_collection.json)
+
+## Link do Azure DevOps
+Clique aqui:
+https://dev.azure.com/559567/AgroTech
+
+## Teste com Selenium IDE
+
+Clique aqui:
+[AgroTech-Apex-Selenium IDE](./AgroTech-APEX.side)

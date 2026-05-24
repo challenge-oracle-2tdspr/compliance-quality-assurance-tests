@@ -1,0 +1,415 @@
+{
+	"info": {
+		"_postman_id": "21558a32-7edc-4193-92ed-b7ae2b0c3359",
+		"name": "Agrotech API Tests",
+		"description": "Coleção com testes de autenticação e endpoints Agrotech",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44972528"
+	},
+	"item": [
+		{
+			"name": "Login inválido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code não é 200\", function () {",
+							"    pm.expect(pm.response.code).to.not.equal(200);",
+							"});",
+							"",
+							"pm.test(\"Retorno contém mensagem de erro\", function () {",
+							"    const json = pm.response.json();",
+							"    pm.expect(json).to.have.property(\"message\");",
+							"    pm.expect(json.message).to.include(\"inválidos\");",
+							"});",
+							"",
+							"pm.test(\"Não deve haver token\", function () {",
+							"    const json = pm.response.json();",
+							"    pm.expect(json.token).to.not.exist;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"errada123\"\n}"
+				},
+				"url": {
+					"raw": "{{apiUrl}}/api/auth/login",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login válido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code é 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Resposta é JSON válido\", function () {",
+							"    const json = pm.response.json();",
+							"    pm.expect(json).to.have.property(\"token\");",
+							"    pm.expect(json).to.have.property(\"expiresAt\");",
+							"    pm.environment.set(\"token\", json.token);",
+							"});",
+							"",
+							"pm.test(\"Token não está vazio\", function () {",
+							"    const json = pm.response.json();",
+							"    pm.expect(json.token).to.be.a(\"string\").and.not.empty;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"{{password}}\"\n}"
+				},
+				"url": {
+					"raw": "{{apiUrl}}/api/auth/login",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Sensores/Leituras",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const responseText = pm.response.text();",
+							"const contentType = pm.response.headers.get(\"Content-Type\") || \"\";",
+							"",
+							"pm.test(\"Status code é 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Resposta não está vazia\", function () {",
+							"    pm.expect(responseText).to.not.eql(\"\");",
+							"});",
+							"",
+							"if (responseText && contentType.includes(\"application/json\")) {",
+							"    const json = pm.response.json();",
+							"",
+							"    pm.test(\"Resposta contém estrutura paginada\", function () {",
+							"        pm.expect(json).to.have.property(\"items\");",
+							"        pm.expect(json).to.have.property(\"page\");",
+							"        pm.expect(json).to.have.property(\"pageSize\");",
+							"        pm.expect(json).to.have.property(\"totalItems\");",
+							"        pm.expect(json).to.have.property(\"totalPages\");",
+							"    });",
+							"",
+							"    pm.test(\"items é um array\", function () {",
+							"        pm.expect(json.items).to.be.an(\"array\");",
+							"    });",
+							"",
+							"    pm.test(\"page e pageSize são válidos\", function () {",
+							"        pm.expect(json.page).to.be.a(\"number\");",
+							"        pm.expect(json.pageSize).to.be.a(\"number\");",
+							"        pm.expect(json.pageSize).to.eql(5);",
+							"    });",
+							"",
+							"    pm.test(\"totalItems e totalPages são numéricos\", function () {",
+							"        pm.expect(json.totalItems).to.be.a(\"number\");",
+							"        pm.expect(json.totalPages).to.be.a(\"number\");",
+							"    });",
+							"",
+							"    if (json.items.length > 0) {",
+							"        pm.test(\"Primeiro item contém campos obrigatórios\", function () {",
+							"            const item = json.items[0];",
+							"            pm.expect(item).to.have.property(\"id\");",
+							"            pm.expect(item).to.have.property(\"name\");",
+							"            pm.expect(item).to.have.property(\"type\");",
+							"            pm.expect(item).to.have.property(\"value\");",
+							"            pm.expect(item).to.have.property(\"timestamp\");",
+							"        });",
+							"",
+							"        pm.environment.set(\"lastFoundSensorId\", json.items[0].id);",
+							"    }",
+							"",
+							"    const preview = json.items.slice(0, 5);",
+							"    console.log(\"Preview sensores:\", preview);",
+							"} else {",
+							"    pm.test(\"Resposta é JSON\", function () {",
+							"        pm.expect.fail(\"A resposta veio vazia ou não veio como application/json\");",
+							"    });",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/sensors/search?Type=6&Page=1&PageSize=5&OrderBy=timestamp&Direction=desc",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"sensors",
+						"search"
+					],
+					"query": [
+						{
+							"key": "Type",
+							"value": "6"
+						},
+						{
+							"key": "Page",
+							"value": "1"
+						},
+						{
+							"key": "PageSize",
+							"value": "5"
+						},
+						{
+							"key": "OrderBy",
+							"value": "timestamp"
+						},
+						{
+							"key": "Direction",
+							"value": "desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Sensor/Leitura",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const responseText = pm.response.text();",
+							"const contentType = pm.response.headers.get(\"Content-Type\") || \"\";",
+							"",
+							"pm.test(\"Status code é 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Resposta não está vazia\", function () {",
+							"    pm.expect(responseText).to.not.eql(\"\");",
+							"});",
+							"",
+							"if (responseText && contentType.includes(\"application/json\")) {",
+							"    const json = pm.response.json();",
+							"",
+							"    pm.test(\"Resposta contém a mensagem de sucesso\", function () {",
+							"        pm.expect(json).to.have.property(\"message\");",
+							"        pm.expect(json.message).to.eql(\"Sensores criados com sucesso.\");",
+							"    });",
+							"",
+							"    pm.test(\"Resposta contém ids\", function () {",
+							"        pm.expect(json).to.have.property(\"ids\");",
+							"        pm.expect(json.ids).to.be.an(\"array\");",
+							"        pm.expect(json.ids.length).to.be.greaterThan(0);",
+							"    });",
+							"",
+							"    pm.test(\"Primeiro id é uma string não vazia\", function () {",
+							"        pm.expect(json.ids[0]).to.be.a(\"string\");",
+							"        pm.expect(json.ids[0]).to.not.be.empty;",
+							"    });",
+							"",
+							"    pm.environment.set(\"sensorId\", json.ids[0]);",
+							"    console.log(\"sensorId salvo:\", json.ids[0]);",
+							"} else {",
+							"    pm.test(\"Resposta é JSON\", function () {",
+							"        pm.expect.fail(\"A resposta veio vazia ou não veio como application/json\");",
+							"    });",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"name\": \"Testes Automatizados\",\n    \"type\": \"6\",\n    \"value\": 0,\n    \"timestamp\": \"2026-05-24T21:27:57.100Z\"\n  }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/sensors",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"sensors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Sensor/Leitura",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"sensorId existe no ambiente\", function () {",
+							"    const sensorId = pm.environment.get(\"sensorId\");",
+							"    pm.expect(sensorId).to.be.a(\"string\").and.not.empty;",
+							"});",
+							"",
+							"pm.test(\"Status code é 204\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});",
+							"",
+							"pm.test(\"Resposta veio sem body\", function () {",
+							"    pm.expect(pm.response.text()).to.eql(\"\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/sensors/{{sensorId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"sensors",
+						"{{sensorId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://g2f0677605ec57e-agrotechdb.adb.sa-saopaulo-1.oraclecloudapps.com/ords/agrotech_app/agrotech"
+		},
+		{
+			"key": "apiUrl",
+			"value": "http://api:8081"
+		},
+		{
+			"key": "username",
+			"value": "admin"
+		},
+		{
+			"key": "password",
+			"value": "123456"
+		},
+		{
+			"key": "token",
+			"value": ""
+		}
+	]
+}
